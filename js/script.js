@@ -1,5 +1,5 @@
 import { tabSel } from './tabSelect.js';
-import { startTimerVal,timerTick } from './timer.js';
+import { timerTick } from './timer.js';
 
 window.addEventListener('DOMContentLoaded', () => {
     //--Табы
@@ -13,8 +13,9 @@ window.addEventListener('DOMContentLoaded', () => {
         seconds = timer.querySelector('.seconds');
 
     tabSel(tab,infoHeader,tabContent);
-    startTimerVal(hours,minutes,seconds);
-    timerTick(hours,minutes,seconds);
+    let deadline = new Date(new Date().getFullYear(), new Date().getMonth(), new Date().getDate()+1, 0,0,0);
+    timerTick(hours,minutes,seconds, deadline);
+
 });
 
 
