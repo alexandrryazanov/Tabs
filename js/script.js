@@ -1,5 +1,6 @@
 import { tabSel } from './tabSelect.js';
 import { timerTick } from './timer.js';
+import { PopUp } from './popup.js';
 
 window.addEventListener('DOMContentLoaded', () => {
     //--Табы
@@ -10,12 +11,18 @@ window.addEventListener('DOMContentLoaded', () => {
     let timer = document.getElementById('timer'),
         hours = timer.querySelector('.hours'),
         minutes = timer.querySelector('.minutes'),
-        seconds = timer.querySelector('.seconds');
+        seconds = timer.querySelector('.seconds'),
+        deadline = new Date(new Date().getFullYear(), new Date().getMonth(), new Date().getDate()+1, 0,0,0);
 
+    //--Кнопка Узнать больше и PopUp
+    let btnMore = document.querySelector('button.more'),
+        popup = new PopUp('.overlay');
+
+    //-- Вызов ф-ий
     tabSel(tab,infoHeader,tabContent);
-    let deadline = new Date(new Date().getFullYear(), new Date().getMonth(), new Date().getDate()+1, 0,0,0);
     timerTick(hours,minutes,seconds, deadline);
-
+    btnMore.addEventListener('click',()=>popup.show());
 });
+
 
 
