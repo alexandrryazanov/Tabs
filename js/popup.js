@@ -1,6 +1,6 @@
 export class PopUp {
     constructor(Selector) {
-        this = document.querySelector(Selector);
+        this.wind = document.querySelector(Selector);
         this.btnClose = this.wind.querySelector('.popup-close');
         this.btnClose.addEventListener('click',()=>this.hide());
     }
