@@ -717,3 +717,15 @@ header ul li:before {
 .overlay .popup-form__btn:hover {
   box-shadow: 0 0 10px #c78030;
 }
+
+.swal-button {
+  padding: 7px 19px;
+  border-radius: 2px;
+  background-color: #c78030;
+  font-size: 12px;
+  border: 1px solid #915e23;
+  text-shadow: 0px -1px 0px rgba(0, 0, 0, 0.3);
+}
+.swal-button:hover {
+  background-color: #442d13;
+}

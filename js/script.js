@@ -1,6 +1,7 @@
 import { tabSel } from './tabSelect.js';
 import { timerTick } from './timer.js';
 import { PopUp } from './popup.js';
+import { testPromises } from './promises.js';
 
 window.addEventListener('DOMContentLoaded', () => {
     //--Табы
@@ -22,8 +23,14 @@ window.addEventListener('DOMContentLoaded', () => {
     tabSel(tab,infoHeader,tabContent);
     timerTick(hours,minutes,seconds, deadline);
     btnMore.addEventListener('click',()=>popup.show());
-});
+    testPromises(0)
+        .then(()=>console.log('Это выполнится если resolve'))
+        .then(()=>console.log('Это выполнится если resolve и выполнилась первая'))
+        .then(()=>console.log('Это выполнится если resolve и выполнилась первая и вторая'))
+        .catch(()=>console.log('Это выполнится если catch'))
+        .then(()=>console.log('Это ТОЖЕ выполнится всегда'));
 
+});
 
 
 
